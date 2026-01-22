@@ -263,3 +263,62 @@ After meeting, client needs to provide:
 3. **Services > Consulting** — 7 offerings cards, case study, CTA
 4. **Newsletter** — The Human Cost page
 5. **Contact** — Form + Calendly placeholder
+
+---
+
+## Pre-Meeting Audit: Site Readiness Checklist
+
+**Audit Date:** Jan 21, 2026
+**Build Status:** ✅ Passes (`npm run build` clean)
+
+### ✅ Ready for Walkthrough
+
+| Item | Status | Notes |
+|------|--------|-------|
+| All pages load | ✅ | Homepage, About, Services, Speaking, Consulting, Newsletter, Contact |
+| Build passes | ✅ | No TypeScript or Next.js errors |
+| Images load | ✅ | All headshots + engagement photos present in `/public/images/` |
+| Contact form | ✅ | Netlify Forms configured correctly |
+| Navigation | ✅ | All internal links work |
+| Animations | ✅ | Framer Motion working, `once: true` set |
+
+### ⚠️ Things Client Will See (Expected — In Meeting Prep)
+
+These are intentional placeholders already documented above:
+
+| Item | What They'll See | Where |
+|------|------------------|-------|
+| Testimonial | "J. Smith, Technology Executive, Enterprise Client" | Homepage testimonial section |
+| Stats | "50+ Keynotes", "15+ Countries", "10K+ Audience Members" | Speaking page hero |
+| Stats | "50+ Organizations Advised" | Homepage CTA section |
+| Social links | LinkedIn/X icons link to root domains | Footer |
+| Calendly | Button with no link | Contact page |
+| Newsletter | Subscribe button disabled | Newsletter page |
+
+### ⚠️ Things to Be Aware Of During Walkthrough
+
+1. **Testimonial is obviously fake** — "J. Smith" / "Enterprise Client" reads as placeholder. Be ready to explain this is intentional and waiting on real testimonial.
+
+2. **Social icons go nowhere useful** — They link to linkedin.com and x.com root, not profile pages. Don't click them during demo.
+
+3. **Calendly button is dead** — Contact page has a "Book a Call" button that does nothing. Mention this is waiting on client's Calendly URL.
+
+4. **Newsletter subscribe is placeholder** — Button exists but doesn't link anywhere yet.
+
+5. **Stats are prominent** — 50+ / 15+ / 10K+ are visible on Speaking page hero. Be prepared for "is that accurate?" question.
+
+### ✅ No Embarrassing Content
+
+- No "lorem ipsum" or "xxx" placeholders in production pages
+- No TODO comments visible in rendered HTML
+- No broken images
+- No console errors
+- No visible development warnings
+
+### Mobile Notes
+
+Site is responsive. On mobile walkthrough:
+- Hero photo stacks below text (intentional)
+- Credential chips hidden on mobile (intentional — they'd be cramped)
+- Navigation collapses to hamburger menu
+- All touch targets appropriately sized
