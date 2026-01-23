@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mic, Briefcase, ArrowRight, LucideIcon } from "lucide-react";
+import { Mic, Briefcase, UserCheck, ArrowRight, LucideIcon } from "lucide-react";
 import { fadeInUp, staggerContainer, slideInRight } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -12,6 +12,7 @@ import { SERVICES } from "@/lib/constants";
 const iconMap: Record<string, LucideIcon> = {
   mic: Mic,
   briefcase: Briefcase,
+  "user-check": UserCheck,
 };
 
 // Service descriptions for the cards
@@ -20,6 +21,8 @@ const serviceDescriptions: Record<string, string> = {
     "Cutting through AI hype to deliver strategic insight—from keynotes at major conferences to executive briefings that audiences describe as immediately actionable.",
   "consulting":
     "Translating complex AI policy into business strategy. Governance frameworks, risk assessment, regulatory intelligence, and ethics that scale.",
+  "coaching":
+    "One-on-one executive coaching for leaders navigating AI strategy, governance decisions, and organizational transformation.",
 };
 
 export default function ServicesPage() {
@@ -67,7 +70,7 @@ export default function ServicesPage() {
               },
             },
           }}
-          className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2"
+          className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3"
         >
           {SERVICES.map((service) => {
             const Icon = iconMap[service.icon];

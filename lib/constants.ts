@@ -21,6 +21,12 @@ export const SERVICES = [
     shortLabel: "Consulting",
     icon: "briefcase",
   },
+  {
+    slug: "coaching",
+    label: "Coaching",
+    shortLabel: "Coaching",
+    icon: "user-check",
+  },
 ] as const;
 
 // TODO: ⚠️ MISSING PROFILE PATHS - Get full URLs from client

@@ -322,6 +322,61 @@ export function CredibilityStrip() {
   );
 }
 
+export function SpeakingMain() {
+  return (
+    <Section background="light" padding="lg">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+      >
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Text Content - Left Side */}
+          <motion.div variants={fadeInUp} className="flex flex-col justify-center">
+            <p className="text-[length:var(--text-body)] leading-relaxed text-text-secondary">
+              Sean Perryman cuts through AI hype and regulatory confusion to deliver
+              strategic insight leaders can actually use. As a sought-after speaker
+              at conferences, executive briefings, and academic forums worldwide, he
+              translates dense policy into strategic insight—helping leaders understand
+              not just what&apos;s coming, but what to do about it.
+            </p>
+
+            <p className="mt-6 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
+              His talks connect technical developments to business strategy, regulatory
+              trends to competitive positioning, and ethical questions to practical decisions.
+            </p>
+
+            <p className="mt-6 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
+              From keynoting major tech conferences to leading executive workshops, Sean
+              delivers content that audiences describe as &ldquo;immediately actionable.&rdquo;
+            </p>
+          </motion.div>
+
+          {/* Photo - Right Side */}
+          <motion.div variants={fadeInUp} className="flex items-center">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg shadow-xl">
+              <Image
+                src="/images/engagements/panel-chci-tech.jpeg"
+                alt="Sean Perryman at CHCI Tech Summit"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="font-heading text-sm font-semibold text-white">
+                  CHCI Tech Summit
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </Section>
+  );
+}
+
 export function SpeakingCTA() {
   return (
     <Section background="light" padding="xl">
@@ -398,9 +453,7 @@ export function SpeakingContent() {
   return (
     <>
       <SpeakingHero />
-      {/* <CredibilityStrip /> */}
-      {/* <EngagementGallery /> */}
-      {/* <SpeakingTopics /> */}
+      <SpeakingMain />
       <SpeakingCTA />
     </>
   );

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Send } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -83,12 +83,27 @@ export default function NewsletterPage() {
               Receive essays, insights, and provocations at the intersection of
               technology and humanity.
             </p>
-            <Button className="mt-6 gap-2">
-              Subscribe Now
-              <ArrowRight className="h-4 w-4" />
-            </Button>
+            <form
+              name="newsletter"
+              method="POST"
+              data-netlify="true"
+              className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-2"
+            >
+              <input type="hidden" name="form-name" value="newsletter" />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                className="flex-1 rounded-lg border border-border bg-white px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
+              />
+              <Button type="submit" className="gap-2">
+                Subscribe
+                <Send className="h-4 w-4" />
+              </Button>
+            </form>
             <p className="mt-3 text-sm text-text-muted">
-              Newsletter platform coming soon
+              No spam. Unsubscribe anytime.
             </p>
           </motion.div>
 

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SERVICES, SERVICE_DETAILS, SITE_CONFIG } from "@/lib/constants";
 import { SpeakingContent } from "@/components/sections/SpeakingContent";
 import { ConsultingContent } from "@/components/sections/ConsultingContent";
+import { CoachingContent } from "@/components/sections/CoachingContent";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -24,6 +25,11 @@ const SERVICE_METADATA: Record<string, { title: string; description: string }> =
     title: "Consulting",
     description:
       "Translating complex AI policy into business strategy. Governance frameworks, risk assessment, regulatory intelligence, and ethics that scale.",
+  },
+  "coaching": {
+    title: "Executive Coaching",
+    description:
+      "Personalized guidance for executives navigating AI decisions with confidence.",
   },
 };
 
@@ -51,9 +57,8 @@ export default async function ServiceDetailPage({
 }: ServiceDetailPageProps) {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
-  const details = SERVICE_DETAILS[slug];
 
-  if (!service || !details) {
+  if (!service) {
     notFound();
   }
 
@@ -62,6 +67,8 @@ export default async function ServiceDetailPage({
       return <SpeakingContent />;
     case "consulting":
       return <ConsultingContent />;
+    case "coaching":
+      return <CoachingContent />;
     default:
       notFound();
   }

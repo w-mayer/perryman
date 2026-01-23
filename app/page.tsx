@@ -2,18 +2,27 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { CredibilityStrip } from "@/components/sections/CredibilityStrip";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutPreview } from "@/components/sections/AboutPreview";
-// import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { NewsletterCTA } from "@/components/sections/NewsletterCTA";
 import { CTASection } from "@/components/sections/CTASection";
+import { ImageBreak } from "@/components/ui/ImageBreak";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
       <CredibilityStrip />
+      <ImageBreak
+        src="/images/engagements/panel-sxsw.jpeg"
+        alt="Sean Perryman at SXSW AI Standards panel"
+        caption="SXSW"
+      />
       <ServicesSection />
       <AboutPreview />
-      {/* <TestimonialSection /> */}
+      <ImageBreak
+        src="/images/engagements/panel-georgetown-ai.jpeg"
+        alt="Sean Perryman at Georgetown AI Forum"
+        caption="Georgetown AI Forum"
+      />
       <NewsletterCTA />
       <CTASection />
     </>

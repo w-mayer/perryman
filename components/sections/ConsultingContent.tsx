@@ -28,6 +28,10 @@ const clientTypes = [
     description: "Building responsible systems from the ground up",
   },
   {
+    type: "Executives",
+    description: "Personal guidance on AI strategy and career decisions",
+  },
+  {
     type: "Academic Institutions",
     description: "Developing curriculum and research frameworks",
   },
@@ -147,9 +151,9 @@ function ConsultingHero() {
               <p className="mb-4 text-sm font-medium uppercase tracking-widest text-text-on-dark-muted">
                 Who I Work With
               </p>
-              <div className="flex flex-wrap gap-6">
+              <div className="grid grid-cols-2 gap-6">
                 {clientTypes.map((client) => (
-                  <div key={client.type} className="max-w-[180px]">
+                  <div key={client.type} className="max-w-[200px]">
                     <span className="font-heading font-semibold text-white">
                       {client.type}
                     </span>

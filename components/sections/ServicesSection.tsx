@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mic, Briefcase } from "lucide-react";
+import { Mic, Briefcase, UserCheck } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { SERVICES } from "@/lib/constants";
@@ -10,6 +10,7 @@ import { SERVICES } from "@/lib/constants";
 const iconMap = {
   mic: Mic,
   briefcase: Briefcase,
+  "user-check": UserCheck,
 } as const;
 
 const serviceDescriptions: Record<string, string> = {
@@ -17,11 +18,14 @@ const serviceDescriptions: Record<string, string> = {
     "Cutting through AI hype to deliver strategic insight—from keynotes at major conferences to executive briefings that leaders describe as immediately actionable.",
   "consulting":
     "Translating complex AI policy into business strategy. Governance frameworks, risk assessment, regulatory intelligence, and ethics that scale.",
+  "coaching":
+    "One-on-one executive coaching for leaders navigating AI strategy, governance decisions, and organizational transformation.",
 };
 
 const serviceCTAs: Record<string, string> = {
   "public-speaking": "View Speaking",
   "consulting": "Explore Services",
+  "coaching": "Learn More",
 };
 
 export function ServicesSection() {
@@ -41,7 +45,7 @@ export function ServicesSection() {
           />
         </motion.div>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
           {SERVICES.map((service, index) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             const cardNumber = String(index + 1).padStart(2, "0");
@@ -49,29 +53,29 @@ export function ServicesSection() {
               <motion.div key={service.slug} variants={fadeInUp}>
                 <Link href={`/services/${service.slug}`} className="group block">
                   <article
-                    className="h-full overflow-hidden rounded-lg border-t-4 border-accent bg-card p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    className="h-full overflow-hidden rounded-lg bg-accent p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
                     <div className="mb-6 flex items-center justify-between">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-accent text-white shadow-md">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 text-white shadow-md">
                         <Icon className="h-7 w-7" strokeWidth={2.5} />
                       </div>
-                      <span className="font-heading text-3xl font-bold text-border">
+                      <span className="font-heading text-3xl font-bold text-white/30">
                         {cardNumber}
                       </span>
                     </div>
-                    <h3 className="font-heading text-[length:var(--text-h3)] font-semibold text-text-primary">
+                    <h3 className="font-heading text-[length:var(--text-h3)] font-semibold text-white">
                       {service.label}
                     </h3>
-                    <p className="mt-4 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
+                    <p className="mt-4 text-[length:var(--text-body)] leading-relaxed text-white/80">
                       {serviceDescriptions[service.slug]}
                     </p>
-                    <span className="mt-6 inline-flex items-center text-sm font-semibold text-accent transition-colors group-hover:text-accent-hover">
+                    <span className="mt-6 inline-flex items-center text-sm font-semibold text-white transition-colors group-hover:text-white/80">
                       {serviceCTAs[service.slug]}
                       <svg
                         className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="white"
                       >
                         <path
                           strokeLinecap="round"
