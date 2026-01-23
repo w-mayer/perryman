@@ -113,15 +113,6 @@ function CoachingHero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-
-              <div className="absolute -bottom-4 -left-4 rounded-lg bg-white px-4 py-3 shadow-xl">
-                <p className="text-xs font-medium text-text-muted">
-                  Certified Executive Coach
-                </p>
-                <p className="font-heading font-semibold text-text-primary">
-                  1:1 Leadership Development
-                </p>
-              </div>
             </div>
           </motion.div>
         </div>

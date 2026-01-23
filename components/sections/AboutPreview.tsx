@@ -11,7 +11,7 @@ import { mockupData } from "@/app/mockups/_components/mockupData";
 const credentials = [
   { value: "10+", label: "Years in AI Policy" }, // ✅ Matches "over a decade" in copy
   { value: "Uber", label: "Global Head of AI Policy" }, // ✅ Confirmed
-  { value: "Oversight Committee", label: "Former Counsel" }, // ✅ Confirmed
+  { value: "House Oversight Committee", label: "Former Counsel" }, // ✅ Confirmed
 ];
 
 export function AboutPreview() {
