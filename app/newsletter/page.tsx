@@ -102,9 +102,6 @@ export default function NewsletterPage() {
                 <Send className="h-4 w-4" />
               </Button>
             </form>
-            <p className="mt-3 text-sm text-text-muted">
-              No spam. Unsubscribe anytime.
-            </p>
           </motion.div>
 
           {/* Themes Section */}

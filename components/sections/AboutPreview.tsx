@@ -29,7 +29,7 @@ export function AboutPreview() {
         >
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-xl">
             <Image
-              src={about.image}
+              src={'/images/headshots/sean-about.jpg'}
               alt={`${hero.name} portrait`}
               fill
               className="object-cover"
