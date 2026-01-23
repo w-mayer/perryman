@@ -69,12 +69,14 @@ export function HeroSection() {
           >
             <div className="relative w-full max-w-md lg:max-w-lg">
               {/* Floating credential chips */}
+              {/*
               <div className="absolute -left-8 top-12 z-10 hidden lg:block">
                 <CredentialChip>First Global Head of AI Policy at Uber</CredentialChip>
               </div>
               <div className="absolute -right-8 bottom-32 z-10 hidden lg:block">
                 <CredentialChip>Oversight Committee Former Counsel</CredentialChip>
               </div>
+              */}
 
               {/* Photo with soft shadow */}
               <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)]">

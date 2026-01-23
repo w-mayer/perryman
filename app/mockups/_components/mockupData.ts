@@ -13,7 +13,7 @@ export const mockupData = {
     tagline: "Bridging AI Strategy, Policy, and Ethics",
     primaryCTA: "Schedule a Consultation",
     secondaryCTA: "View Speaking",
-    image: "/images/headshots/sean-about.jpg",
+    image: "/images/headshots/sean-hero.jpg",
   },
   credibility: {
     title: "First Global Head of AI Policy at Uber",
