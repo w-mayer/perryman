@@ -289,8 +289,8 @@ function ProcessSection() {
           <motion.div variants={slideInRight} className="flex items-center">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/images/engagements/panel-georgetown.jpeg"
-                alt="Sean Perryman at Georgetown Law"
+                src="/images/engagements/panel-georgetown-ai_old.jpeg"
+                alt="Sean Perryman at Georgetown AI Policy Forum"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

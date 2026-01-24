@@ -357,8 +357,8 @@ export function SpeakingMain() {
           <motion.div variants={fadeInUp} className="flex items-center">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg shadow-xl">
               <Image
-                src="/images/engagements/panel-chci-tech.jpeg"
-                alt="Sean Perryman at CHCI Tech Summit"
+                src="/images/engagements/panel-iapp-privacy.jpeg"
+                alt="Sean Perryman at IAPP Privacy Forum"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -366,7 +366,7 @@ export function SpeakingMain() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="font-heading text-sm font-semibold text-white">
-                  CHCI Tech Summit
+                  IAPP Privacy Forum
                 </p>
               </div>
             </div>
@@ -392,10 +392,10 @@ export function SpeakingCTA() {
             {/* Image side - takes 2 of 5 columns */}
             <div className="relative hidden overflow-hidden lg:col-span-2 lg:block">
               <Image
-                src="/images/engagements/panel-igg23.jpeg"
-                alt="Sean Perryman at international governance forum"
+                src="/images/engagements/panel-trustworthy-ai.jpeg"
+                alt="Sean Perryman on Building Trustworthy AI panel"
                 fill
-                className="scale-110 object-cover object-[60%_center]"
+                className="object-cover object-[30%_center]"
                 sizes="(max-width: 1024px) 0vw, 320px"
               />
             </div>

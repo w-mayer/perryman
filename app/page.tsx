@@ -15,11 +15,12 @@ export default function HomePage() {
         src="/images/engagements/panel-sxsw.jpeg"
         alt="Sean Perryman at SXSW AI Standards panel"
         caption="SXSW"
+        objectPosition="center 40%"
       />
       <ServicesSection />
       <AboutPreview />
       <ImageBreak
-        src="/images/engagements/panel-georgetown-ai.jpeg"
+        src="/images/engagements/panel-chci-tech.jpeg"
         alt="Sean Perryman at Georgetown AI Forum"
         caption="Georgetown AI Forum"
         objectPosition="center 11%"
