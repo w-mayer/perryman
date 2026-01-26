@@ -80,22 +80,21 @@ function CoachingHero() {
           </motion.div>
 
           <motion.div
-            className="relative flex flex-1 items-center justify-center lg:justify-end"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="relative flex items-center justify-center lg:flex-1 lg:justify-end"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="relative w-full max-w-lg">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+            <div className="relative w-full max-w-[280px] lg:max-w-[320px]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)]">
                 <Image
                   src="/images/headshots/sean-formal.jpg"
                   alt="Sean Perryman - Executive Coach"
                   fill
                   className="object-cover"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                  sizes="(max-width: 768px) 280px, 320px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             </div>
           </motion.div>

@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/sections/HeroSection";
-import { CredibilityStrip } from "@/components/sections/CredibilityStrip";
 import { ValueProposition } from "@/components/sections/ValueProposition";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutPreview } from "@/components/sections/AboutPreview";
@@ -11,7 +10,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <CredibilityStrip />
       <ValueProposition />
       <ImageBreak
         src="/images/engagements/panel-sxsw.jpeg"

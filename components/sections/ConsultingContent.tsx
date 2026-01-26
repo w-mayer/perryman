@@ -83,14 +83,6 @@ const offerings = [
   },
 ];
 
-// Featured venues
-const featuredVenues = [
-  "Uber",
-  "U.S. Congress",
-  "Vanderbilt Law",
-  "CDT Advisory Board",
-];
-
 // Case study outcomes
 const outcomes = [
   "First EU Algorithmic Transparency Report",
@@ -197,34 +189,6 @@ function ConsultingHero() {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
-}
-
-function CredibilityStrip() {
-  return (
-    <section className="border-y border-white/10 bg-background-dark py-8">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="mx-auto max-w-7xl px-6 text-center md:px-8"
-      >
-        <p className="mb-6 text-sm font-medium uppercase tracking-widest text-text-on-dark-muted">
-          Trusted By Leaders At
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {featuredVenues.map((venue) => (
-            <span
-              key={venue}
-              className="font-heading text-lg font-semibold text-white/80 transition-colors hover:text-white"
-            >
-              {venue}
-            </span>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }
@@ -483,7 +447,6 @@ export function ConsultingContent() {
   return (
     <>
       <ConsultingHero />
-      {/* <CredibilityStrip /> */}
       <ProcessSection />
       <OfferingsSection />
       {/* <CaseStudySection /> */}

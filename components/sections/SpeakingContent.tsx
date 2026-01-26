@@ -77,14 +77,6 @@ const topics = [
   },
 ];
 
-// Featured events/venues for credibility
-const featuredVenues = [
-  "Vanderbilt AI Governance Symposium",
-  "Alianza In AI Conference",
-  "SXSW",
-  "AI Action Summit, Paris",
-];
-
 export function SpeakingHero() {
   return (
     <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-background-dark via-background-dark-end to-background-dark text-white">
@@ -280,34 +272,6 @@ export function SpeakingTopics() {
                 {topic.description}
               </p>
             </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </Section>
-  );
-}
-
-export function CredibilityStrip() {
-  return (
-    <Section background="dark" padding="md">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-        className="text-center"
-      >
-        <p className="mb-6 text-sm font-medium uppercase tracking-widest text-text-on-dark-muted">
-          Featured At
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {featuredVenues.map((venue) => (
-            <span
-              key={venue}
-              className="font-heading text-lg font-semibold text-white/80 transition-colors hover:text-white"
-            >
-              {venue}
-            </span>
           ))}
         </div>
       </motion.div>
