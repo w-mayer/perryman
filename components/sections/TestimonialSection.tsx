@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import { scaleUp } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
-// TODO: Replace with real testimonial data from client
-const testimonialData = {
-  quote:
-    "Sean's ability to translate complex AI policy into actionable strategy is unmatched.",
-  author: "J. Smith",
-  role: "Chief Technology Officer",
-  company: "Enterprise Corp",
-};
+import { TESTIMONIAL } from "@/lib/content";
 
 // Elegant typographic quote mark
 function DecorativeQuote() {
@@ -35,8 +28,7 @@ function getInitials(name: string): string {
 }
 
 export function TestimonialSection() {
-  const testimonial = testimonialData;
-  const initials = getInitials(testimonial.author);
+  const initials = getInitials(TESTIMONIAL.author);
 
   return (
     <Section background="light" padding="lg">
@@ -51,7 +43,7 @@ export function TestimonialSection() {
           <DecorativeQuote />
 
           <blockquote className="-mt-2 font-heading text-[length:var(--text-h3)] font-medium leading-relaxed text-white md:text-[length:var(--text-h2)]">
-            &ldquo;{testimonial.quote}&rdquo;
+            &ldquo;{TESTIMONIAL.quote}&rdquo;
           </blockquote>
 
           <div className="mt-8 flex items-center justify-between">
@@ -62,9 +54,9 @@ export function TestimonialSection() {
                 {initials}
               </div>
               <div>
-                <p className="font-semibold">{testimonial.author}</p>
+                <p className="font-semibold">{TESTIMONIAL.author}</p>
                 <p className="text-sm text-white/70">
-                  {testimonial.role}, {testimonial.company}
+                  {TESTIMONIAL.role}, {TESTIMONIAL.company}
                 </p>
               </div>
             </div>
@@ -73,7 +65,7 @@ export function TestimonialSection() {
             <div className="hidden items-center sm:flex">
               <div className="flex h-10 items-center rounded border border-white/10 bg-white/5 px-4">
                 <span className="text-xs font-medium uppercase tracking-wider text-white/40">
-                  {testimonial.company}
+                  {TESTIMONIAL.company}
                 </span>
               </div>
             </div>
