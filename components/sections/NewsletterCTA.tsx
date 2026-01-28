@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { LuArrowRight } from "react-icons/lu";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { NEWSLETTER_CTA } from "@/lib/content";
 
 export function NewsletterCTA() {
   return (
@@ -21,32 +21,34 @@ export function NewsletterCTA() {
           variants={fadeInUp}
           className="text-sm font-semibold uppercase tracking-widest text-accent"
         >
-          The Human Cost
+          {NEWSLETTER_CTA.label}
         </motion.p>
 
         <motion.h2
           variants={fadeInUp}
           className="mt-4 font-heading text-[length:var(--text-h2)] font-semibold text-text-primary"
         >
-          AI's Impact on What Makes Us Human
+          {NEWSLETTER_CTA.heading}
         </motion.h2>
 
         <motion.p
           variants={fadeInUp}
           className="mt-4 text-[length:var(--text-body)] text-text-secondary"
         >
-          Through his newsletter, Sean explores the deeper implications of living in
-          an AI-mediated world—examining what happens to trust, relationships, and
-          human agency when algorithms increasingly shape our choices.
+          {NEWSLETTER_CTA.description}
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mt-8">
-          <Link href="/newsletter">
+          <a
+            href="http://thehumancostai.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button variant="secondary" className="gap-2">
-              Subscribe to the Newsletter
-              <ArrowRight className="h-4 w-4" />
+              {NEWSLETTER_CTA.buttonText}
+              <LuArrowRight className="h-4 w-4" />
             </Button>
-          </Link>
+          </a>
         </motion.div>
       </motion.div>
     </Section>

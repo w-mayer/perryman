@@ -9,8 +9,8 @@ export const SITE_CONFIG_SEO = {
   ogImage: "/opengraph-image.png",
   email: "hello@seanperryman.com",
   social: {
-    linkedin: "https://linkedin.com", // TODO: Full profile URL from client
-    twitter: "https://x.com", // TODO: Full profile URL from client
+    linkedin: "https://www.linkedin.com/in/seanperryman",
+    twitter: "https://x.com/SeanPerrymanVA",
   },
   keywords: [
     "AI policy",

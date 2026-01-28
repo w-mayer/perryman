@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { CTA_CONTENT } from "@/lib/content";
 
 export function CTASection() {
   return (
@@ -45,21 +46,19 @@ export function CTASection() {
           variants={fadeInUp}
           className="font-heading text-[length:var(--text-h1)] font-semibold text-white"
         >
-          Let&apos;s Work Together
+          {CTA_CONTENT.headline}
         </motion.h2>
 
         <motion.p
           variants={fadeInUp}
           className="mt-6 text-[length:var(--text-body)] text-white/70"
         >
-          Whether you need strategic guidance on AI governance, executive education 
-          for your team, or a speaker who can make complex policy accessible, 
-          Sean brings a practitioner&apos;'s perspective to every engagement.
+          {CTA_CONTENT.subtext}
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mt-8">
           <Link href="/contact">
-            <Button size="lg">Get in Touch</Button>
+            <Button size="lg">{CTA_CONTENT.buttonText}</Button>
           </Link>
         </motion.div>
       </motion.div>

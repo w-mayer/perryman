@@ -3,79 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mic, Users, Globe, Lightbulb, ArrowRight } from "lucide-react";
+import { LuMic, LuUsers, LuGlobe, LuLightbulb, LuArrowRight } from "react-icons/lu";
 import { fadeInUp, staggerContainer, scaleUp } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import {
+  SPEAKING_ENGAGEMENTS,
+  SPEAKING_TOPICS,
+  SPEAKING_HERO,
+  SPEAKING_SECTIONS,
+} from "@/lib/content";
 
-// Engagement photos with event context
-const engagements = [
-  {
-    src: "/images/engagements/keynote-colombia.jpeg",
-    alt: "Sean Perryman keynote at Colombia AI conference",
-    event: "AI Leadership Summit",
-    location: "Bogota, Colombia",
-    type: "Keynote",
-    featured: true,
-  },
-  {
-    src: "/images/engagements/keynote-colombia-wide.jpeg",
-    alt: "Sean Perryman keynoting at Colombia AI conference",
-    event: "AI Colombia Summit",
-    location: "Bogota, Colombia",
-    type: "Keynote",
-  },
-  {
-    src: "/images/engagements/panel-iapp-privacy.jpeg",
-    alt: "Sean Perryman at IAPP Privacy Summit",
-    event: "IAPP Privacy Summit",
-    location: "Washington, DC",
-    type: "Panel",
-  },
-  {
-    src: "/images/engagements/panel-georgetown-ai.jpeg",
-    alt: "Sean Perryman at Georgetown AI Forum",
-    event: "Georgetown AI Forum",
-    location: "Washington, DC",
-    type: "Panel",
-  },
-  {
-    src: "/images/engagements/panel-chci-tech.jpeg",
-    alt: "Sean Perryman at CHCI Tech Summit",
-    event: "CHCI Tech Summit",
-    location: "Washington, DC",
-    type: "Panel",
-  },
-];
-
-// Speaking topics
-// TODO: Topic titles are reasonable; descriptions are generic filler - consider getting real descriptions from client
-const topics = [
-  {
-    icon: Lightbulb,
-    title: "AI Governance & Ethics",
-    description:
-      "Frameworks for responsible AI deployment that balance innovation with accountability.",
-  },
-  {
-    icon: Globe,
-    title: "Global AI Policy",
-    description:
-      "Navigating the evolving international regulatory landscape and its implications for business.",
-  },
-  {
-    icon: Users,
-    title: "Leadership in the AI Era",
-    description:
-      "Preparing executive teams to make confident decisions about AI strategy and adoption.",
-  },
-  {
-    icon: Mic,
-    title: "The Future of Work",
-    description:
-      "How AI will reshape industries and what leaders need to know to stay ahead.",
-  },
-];
+const iconMap = {
+  Lightbulb: LuLightbulb,
+  Globe: LuGlobe,
+  Users: LuUsers,
+  Mic: LuMic,
+} as const;
 
 export function SpeakingHero() {
   return (
@@ -96,31 +40,28 @@ export function SpeakingHero() {
               variants={fadeInUp}
               className="mb-4 text-base font-medium text-accent"
             >
-              Speaking & Engagements
+              {SPEAKING_HERO.subtitle}
             </motion.p>
 
             <motion.h1
               variants={fadeInUp}
               className="font-heading text-[length:var(--text-h1)] font-bold leading-tight tracking-tight text-white"
             >
-              Cutting Through
+              {SPEAKING_HERO.headingLine1}
               <br />
-              <span className="text-accent">AI Hype</span>
+              <span className="text-accent">{SPEAKING_HERO.headingAccent}</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
               className="mt-6 max-w-[520px] text-lg leading-relaxed text-text-on-dark-muted"
             >
-              Sean translates dense policy into strategic insight—helping leaders
-              understand not just what&apos;s coming, but what to do about it.
-              His talks connect technical developments to business strategy,
-              regulatory trends to competitive positioning.
+              {SPEAKING_HERO.description}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact">
-                <Button size="lg">Book Sean for Your Event</Button>
+                <Button size="lg">{SPEAKING_HERO.ctaText}</Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -151,7 +92,7 @@ export function SpeakingHero() {
               <div className="absolute -bottom-4 -left-4 rounded-lg bg-white px-4 py-3 shadow-xl">
                 <p className="text-xs font-medium text-text-muted">Recent Keynote</p>
                 <p className="font-heading font-semibold text-text-primary">
-                  AI Leadership Summit
+                  {SPEAKING_ENGAGEMENTS[0].event}
                 </p>
               </div>
             </div>
@@ -164,7 +105,7 @@ export function SpeakingHero() {
 
 export function EngagementGallery() {
   // Skip the first (featured) image since it's in the hero
-  const galleryImages = engagements.slice(1);
+  const galleryImages = SPEAKING_ENGAGEMENTS.slice(1);
 
   return (
     <Section background="light" padding="lg">
@@ -176,11 +117,10 @@ export function EngagementGallery() {
       >
         <motion.div variants={fadeInUp} className="mb-12">
           <h2 className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary">
-            Recent Engagements
+            {SPEAKING_SECTIONS.gallery.heading}
           </h2>
           <p className="mt-4 max-w-2xl text-[length:var(--text-body)] text-text-secondary">
-            From policy forums to corporate summits, Sean brings clarity to complex
-            AI topics across diverse audiences.
+            {SPEAKING_SECTIONS.gallery.description}
           </p>
         </motion.div>
 
@@ -247,32 +187,34 @@ export function SpeakingTopics() {
       >
         <motion.div variants={fadeInUp} className="mb-12 text-center">
           <h2 className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary">
-            Speaking Topics
+            {SPEAKING_SECTIONS.topics.heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[length:var(--text-body)] text-text-secondary">
-            Every presentation is tailored to your audience, but these themes form
-            the foundation of Sean&apos;s expertise.
+            {SPEAKING_SECTIONS.topics.description}
           </p>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {topics.map((topic) => (
-            <motion.div
-              key={topic.title}
-              variants={scaleUp}
-              className="group rounded-xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-                <topic.icon className="h-6 w-6" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-text-primary">
-                {topic.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                {topic.description}
-              </p>
-            </motion.div>
-          ))}
+          {SPEAKING_TOPICS.map((topic) => {
+            const Icon = iconMap[topic.iconName];
+            return (
+              <motion.div
+                key={topic.title}
+                variants={scaleUp}
+                className="group rounded-xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-text-primary">
+                  {topic.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {topic.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </Section>
@@ -291,23 +233,14 @@ export function SpeakingMain() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Text Content - Left Side */}
           <motion.div variants={fadeInUp} className="flex flex-col justify-center">
-            <p className="text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              Sean Perryman cuts through AI hype and regulatory confusion to deliver
-              strategic insight leaders can actually use. As a sought-after speaker
-              at conferences, executive briefings, and academic forums worldwide, he
-              translates dense policy into strategic insight—helping leaders understand
-              not just what&apos;s coming, but what to do about it.
-            </p>
-
-            <p className="mt-6 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              His talks connect technical developments to business strategy, regulatory
-              trends to competitive positioning, and ethical questions to practical decisions.
-            </p>
-
-            <p className="mt-6 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              From keynoting major tech conferences to leading executive workshops, Sean
-              delivers content that audiences describe as &ldquo;immediately actionable.&rdquo;
-            </p>
+            {SPEAKING_SECTIONS.main.paragraphs.map((paragraph, index) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className={`${index > 0 ? "mt-6" : ""} text-[length:var(--text-body)] leading-relaxed text-text-secondary`}
+              >
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
 
           {/* Photo - Right Side */}
@@ -363,39 +296,31 @@ export function SpeakingCTA() {
                 variants={fadeInUp}
                 className="font-heading text-[length:var(--text-h2)] font-semibold text-white"
               >
-                Book Sean for Your Event
+                {SPEAKING_SECTIONS.cta.heading}
               </motion.h2>
 
               <motion.p
                 variants={fadeInUp}
                 className="mt-4 text-[length:var(--text-body)] text-text-on-dark-muted"
               >
-                Expert briefings and educational talks tailored to your
-                audience—whether board members, technical teams, or industry
-                conferences. Complex topics made digestible and actionable.
+                {SPEAKING_SECTIONS.cta.description}
               </motion.p>
 
               <motion.ul
                 variants={fadeInUp}
                 className="mt-6 space-y-3 text-sm text-text-on-dark-muted"
               >
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-accent" />
-                  Keynotes that audiences call &ldquo;immediately actionable&rdquo;
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-accent" />
-                  Executive workshops and team education
-                </li>
-                <li className="flex items-center gap-2">
-                  <ArrowRight className="h-4 w-4 text-accent" />
-                  Panel moderation and participation
-                </li>
+                {SPEAKING_SECTIONS.cta.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-center gap-2">
+                    <LuArrowRight className="h-4 w-4 text-accent" />
+                    {bullet}
+                  </li>
+                ))}
               </motion.ul>
 
               <motion.div variants={fadeInUp} className="mt-8">
                 <Link href="/contact">
-                  <Button size="lg">Inquire About Availability</Button>
+                  <Button size="lg">{SPEAKING_SECTIONS.cta.buttonText}</Button>
                 </Link>
               </motion.div>
             </div>

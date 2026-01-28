@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mic, Briefcase, UserCheck } from "lucide-react";
+import { LuMic, LuBriefcase, LuUserCheck } from "react-icons/lu";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { SERVICES } from "@/lib/constants";
 import { SERVICE_DESCRIPTIONS } from "@/lib/content";
 
 const iconMap = {
-  mic: Mic,
-  briefcase: Briefcase,
-  "user-check": UserCheck,
+  mic: LuMic,
+  briefcase: LuBriefcase,
+  "user-check": LuUserCheck,
 } as const;
 
 const serviceCTAs: Record<string, string> = {
@@ -49,7 +49,7 @@ export function ServicesSection() {
                   >
                     <div className="mb-6 flex items-center justify-between">
                       <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/20 text-white shadow-md">
-                        <Icon className="h-7 w-7" strokeWidth={2.5} />
+                        <Icon className="h-7 w-7" />
                       </div>
                       <span className="font-heading text-3xl font-bold text-white/30">
                         {cardNumber}

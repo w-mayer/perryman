@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Send } from "lucide-react";
+import { LuMail, LuArrowRight } from "react-icons/lu";
 import { fadeInUp, staggerContainer } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { NEWSLETTER_PAGE } from "@/lib/content";
 
 export default function NewsletterPage() {
   return (
@@ -22,13 +23,13 @@ export default function NewsletterPage() {
             variants={fadeInUp}
             className="text-sm font-semibold uppercase tracking-widest text-accent"
           >
-            Newsletter
+            {NEWSLETTER_PAGE.label}
           </motion.p>
           <motion.h1
             variants={fadeInUp}
             className="mt-4 font-heading text-[length:var(--text-h1)] font-semibold text-text-on-dark"
           >
-            The Human Cost
+            {NEWSLETTER_PAGE.heading}
           </motion.h1>
           <motion.div
             variants={fadeInUp}
@@ -38,7 +39,7 @@ export default function NewsletterPage() {
             variants={fadeInUp}
             className="mx-auto mt-6 max-w-2xl text-[length:var(--text-body)] leading-relaxed text-text-on-dark-muted"
           >
-            AI&apos;s Impact on What Makes Us Human
+            {NEWSLETTER_PAGE.subtitle}
           </motion.p>
         </motion.div>
       </Section>
@@ -55,7 +56,7 @@ export default function NewsletterPage() {
           {/* Description */}
           <motion.div variants={fadeInUp} className="text-center">
             <p className="text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              Through <strong className="text-text-primary">The Human Cost</strong>, Sean
+              Through <strong className="text-text-primary">{NEWSLETTER_PAGE.heading}</strong>, Sean
               explores what most AI policy discussions ignore: the deeper implications of
               living in an AI-mediated world. What happens to trust, relationships, and
               human agency when algorithms increasingly shape our choices?
@@ -74,47 +75,38 @@ export default function NewsletterPage() {
             className="mt-12 rounded-xl border border-border bg-card p-8 text-center shadow-sm"
           >
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
-              <Mail className="h-6 w-6 text-accent" />
+              <LuMail className="h-6 w-6 text-accent" />
             </div>
             <h2 className="font-heading text-[length:var(--text-h3)] font-semibold text-text-primary">
-              Subscribe
+              {NEWSLETTER_PAGE.subscribe.heading}
             </h2>
             <p className="mt-2 text-[length:var(--text-body)] text-text-secondary">
-              Receive essays, insights, and provocations at the intersection of
-              technology and humanity.
+              {NEWSLETTER_PAGE.subscribe.subtitle}
             </p>
-            <form
-              name="newsletter"
-              method="POST"
-              data-netlify="true"
-              className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-2"
+            <a
+              href="http://thehumancostai.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block"
             >
-              <input type="hidden" name="form-name" value="newsletter" />
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                className="flex-1 rounded-lg border border-border bg-white px-4 py-3 text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-              />
-              <Button type="submit" className="gap-2">
-                Subscribe
-                <Send className="h-4 w-4" />
+              <Button className="gap-2">
+                Subscribe on Substack
+                <LuArrowRight className="h-4 w-4" />
               </Button>
-            </form>
+            </a>
           </motion.div>
 
           {/* About Sean link */}
           <motion.div variants={fadeInUp} className="mt-12 text-center">
             <p className="text-[length:var(--text-body)] text-text-secondary">
-              Want to learn more about Sean&apos;s background and work?
+              {NEWSLETTER_PAGE.aboutLink.text}
             </p>
             <Link
               href="/about"
               className="mt-2 inline-flex items-center gap-1 text-accent hover:underline"
             >
-              Read his full bio
-              <ArrowRight className="h-4 w-4" />
+              {NEWSLETTER_PAGE.aboutLink.linkText}
+              <LuArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </motion.div>

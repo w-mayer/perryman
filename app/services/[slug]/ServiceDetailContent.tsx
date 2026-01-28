@@ -4,22 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Presentation,
-  Users,
-  Target,
-  Lightbulb,
-  Shield,
-  BarChart3,
-  Compass,
-  Rocket,
-  Handshake,
-  Brain,
-  Clock,
-  Award,
-  Mic,
-  Briefcase,
-  UserCheck,
-} from "lucide-react";
+  LuPresentation,
+  LuUsers,
+  LuTarget,
+  LuLightbulb,
+  LuShield,
+  LuChartBar,
+  LuCompass,
+  LuRocket,
+  LuHandshake,
+  LuBrain,
+  LuClock,
+  LuAward,
+  LuMic,
+  LuBriefcase,
+  LuUserCheck,
+} from "react-icons/lu";
 import {
   fadeInUp,
   slideInLeft,
@@ -31,25 +31,25 @@ import { Button } from "@/components/ui/Button";
 import { SERVICES, type ServiceDetail, type ServiceFeature } from "@/lib/constants";
 
 const iconMap = {
-  presentation: Presentation,
-  users: Users,
-  target: Target,
-  lightbulb: Lightbulb,
-  shield: Shield,
-  chart: BarChart3,
-  compass: Compass,
-  rocket: Rocket,
-  handshake: Handshake,
-  brain: Brain,
-  clock: Clock,
-  award: Award,
-  mic: Mic,
-  briefcase: Briefcase,
-  "user-check": UserCheck,
+  presentation: LuPresentation,
+  users: LuUsers,
+  target: LuTarget,
+  lightbulb: LuLightbulb,
+  shield: LuShield,
+  chart: LuChartBar,
+  compass: LuCompass,
+  rocket: LuRocket,
+  handshake: LuHandshake,
+  brain: LuBrain,
+  clock: LuClock,
+  award: LuAward,
+  mic: LuMic,
+  briefcase: LuBriefcase,
+  "user-check": LuUserCheck,
 } as const;
 
 function getIcon(iconName: ServiceFeature["icon"]) {
-  return iconMap[iconName] || Lightbulb;
+  return iconMap[iconName] || LuLightbulb;
 }
 
 interface ServiceDetailContentProps {
@@ -174,7 +174,7 @@ export function ServiceDetailContent({
               },
             },
           }}
-          className="mt-12 grid gap-6 md:grid-cols-2"
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
         >
           {details.features.map((feature) => {
             const Icon = getIcon(feature.icon);

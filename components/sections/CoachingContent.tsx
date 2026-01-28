@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Compass, Users, Target, CheckCircle } from "lucide-react";
+import { LuCompass, LuUsers, LuTarget, LuCircleCheck } from "react-icons/lu";
 import {
   fadeInUp,
   staggerContainer,
@@ -13,12 +13,18 @@ import {
 } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { COACHING_OFFERINGS, COACHING_CLIENT_TYPES } from "@/lib/content";
+import {
+  COACHING_OFFERINGS,
+  COACHING_CLIENT_TYPES,
+  COACHING_HERO,
+  COACHING_PROCESS,
+  COACHING_CTA,
+} from "@/lib/content";
 
 const iconMap = {
-  Users,
-  Compass,
-  Target,
+  Users: LuUsers,
+  Compass: LuCompass,
+  Target: LuTarget,
 } as const;
 
 function CoachingHero() {
@@ -38,21 +44,21 @@ function CoachingHero() {
               variants={fadeInUp}
               className="mb-4 text-base font-medium text-accent"
             >
-              Executive Coaching
+              {COACHING_HERO.subtitle}
             </motion.p>
 
             <motion.h1
               variants={fadeInUp}
               className="font-heading text-[length:var(--text-h1)] font-bold leading-tight tracking-tight text-white"
             >
-              Coaching leaders and executives both
+              {COACHING_HERO.headingLine1}
               <br />
-              <span className="text-accent">professionally and personally.</span>
+              <span className="text-accent">{COACHING_HERO.headingAccent}</span>
             </motion.h1>
 
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact">
-                <Button size="lg">Let&apos;s Talk</Button>
+                <Button size="lg">{COACHING_HERO.ctaText}</Button>
               </Link>
             </motion.div>
           </motion.div>
@@ -94,28 +100,16 @@ function ProcessSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div variants={slideInLeft}>
             <h2 className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary">
-              How We Work
+              {COACHING_PROCESS.heading}
             </h2>
-            <p className="mt-4 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              1:1 coaching engagements typically run 3-6 months with biweekly
-              sessions. Between sessions, you&apos;re implementing—I&apos;m
-              available for real-time challenges as they emerge.
-            </p>
-
-              <p className="mt-4 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              Group Coaching for groups of executives adopting, implementing with AI or managing teams through technological change.
-            </p>
-
-            <p className="mt-6 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              As a certified executive coach with practitioner experience
-              designing AI governance for global operations, advising Congress
-              on algorithmic accountability, and teaching AI ethics at
-              Vanderbilt Law, I bring both coaching methodology and hard-won
-              expertise to leadership challenges that are fundamentally
-              unprecedented. Also, as a leader and executive that has navigated 
-              personal and professional transitions, I work with you to acheive success
-              in the face of challenging changes.
-            </p>
+            {COACHING_PROCESS.paragraphs.map((paragraph, index) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className={`${index === 0 ? "mt-4" : "mt-6"} text-[length:var(--text-body)] leading-relaxed text-text-secondary`}
+              >
+                {paragraph}
+              </p>
+            ))}
           </motion.div>
 
           <motion.div variants={slideInRight} className="flex items-center">
@@ -151,7 +145,7 @@ function OfferingsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {COACHING_OFFERINGS.map((offering) => {
             const Icon = iconMap[offering.iconName];
             return (
@@ -194,14 +188,14 @@ function ClientTypesSection() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4">
           {COACHING_CLIENT_TYPES.map((client) => (
             <motion.div
               key={client}
               variants={fadeInUp}
               className="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm"
             >
-              <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+              <LuCircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
               <span className="text-[length:var(--text-body)] text-text-secondary">
                 {client}
               </span>
@@ -227,24 +221,23 @@ function CoachingCTA() {
           variants={fadeInUp}
           className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary"
         >
-          Let&apos;s Talk
+          {COACHING_CTA.heading}
         </motion.h2>
 
         <motion.p
           variants={fadeInUp}
           className="mx-auto mt-4 max-w-2xl text-[length:var(--text-body)] text-text-secondary"
         >
-          Let&apos;s have a conversation about whether this is right for what
-          you&apos;re navigating.
+          {COACHING_CTA.subtext}
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mt-8 flex justify-center gap-4">
           <Link href="/contact">
-            <Button size="lg">Schedule a Conversation</Button>
+            <Button size="lg">{COACHING_CTA.primaryButtonText}</Button>
           </Link>
           <Link href="/services/consulting">
             <Button variant="secondary" size="lg">
-              View Consulting
+              {COACHING_CTA.secondaryButtonText}
             </Button>
           </Link>
         </motion.div>

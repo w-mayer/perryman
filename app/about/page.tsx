@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award, Users } from "lucide-react";
+import { LuBriefcase, LuGraduationCap, LuAward, LuUsers } from "react-icons/lu";
 import {
   fadeInUp,
   slideInLeft,
@@ -12,13 +12,13 @@ import {
 } from "@/styles/animations";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { ABOUT_CONTENT, HERO_CONTENT, CAREER_HIGHLIGHTS } from "@/lib/content";
+import { ABOUT_CONTENT, HERO_CONTENT, CAREER_HIGHLIGHTS, ABOUT_PAGE } from "@/lib/content";
 
 const iconMap = {
-  Briefcase,
-  Users,
-  GraduationCap,
-  Award,
+  Briefcase: LuBriefcase,
+  Users: LuUsers,
+  GraduationCap: LuGraduationCap,
+  Award: LuAward,
 } as const;
 
 export default function AboutPage() {
@@ -39,7 +39,7 @@ export default function AboutPage() {
             variants={fadeInUp}
             className="font-heading text-[length:var(--text-h1)] font-semibold text-text-on-dark"
           >
-            About Sean
+            {ABOUT_PAGE.header.heading}
           </motion.h1>
           <motion.div
             variants={fadeInUp}
@@ -49,8 +49,7 @@ export default function AboutPage() {
             variants={fadeInUp}
             className="mx-auto mt-6 max-w-2xl text-[length:var(--text-body)] leading-relaxed text-text-on-dark-muted"
           >
-            Bridging the gap between technological innovation and responsible
-            governance to help organizations harness AI&apos;s potential.
+            {ABOUT_PAGE.header.subtitle}
           </motion.p>
         </motion.div>
       </Section>
@@ -99,41 +98,28 @@ export default function AboutPage() {
               {about.bio}
             </motion.p>
 
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              His career spans Capitol Hill, Silicon Valley, and law school
-              classrooms. As Counsel to the late Congressman Elijah Cummings,
-              Sean advised on the early regulatory debates that shaped how
-              Congress thinks about facial recognition, algorithmic accountability,
-              and technology governance.
-            </motion.p>
+            {ABOUT_PAGE.bio.map((paragraph) => (
+              <motion.p
+                key={paragraph.slice(0, 40)}
+                variants={fadeInUp}
+                className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
+              >
+                {paragraph}
+              </motion.p>
+            ))}
 
             <motion.p
               variants={fadeInUp}
               className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
             >
-              What distinguishes Sean&apos;s work is his ability to move fluidly
-              between worlds that rarely speak the same language. He&apos;s equally
-              comfortable briefing C-suite executives, testifying before lawmakers,
-              or teaching first-year law students.
-            </motion.p>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              Beyond consulting and teaching, Sean writes and speaks about AI&apos;s
-              broader implications through{" "}
+              {ABOUT_PAGE.bioNewsletterText}{" "}
               <Link
                 href="/newsletter"
                 className="font-semibold text-accent hover:underline"
               >
-                The Human Cost
+                {ABOUT_PAGE.bioNewsletterLinkText}
               </Link>
-              , a platform examining what happens when algorithms increasingly
-              mediate human relationships, decision-making, and social connection.
+              {ABOUT_PAGE.bioNewsletterSuffix}
             </motion.p>
           </motion.div>
         </div>
@@ -166,7 +152,7 @@ export default function AboutPage() {
               },
             },
           }}
-          className="mt-12 grid gap-6 md:grid-cols-2"
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
         >
           {CAREER_HIGHLIGHTS.map((item) => {
             const Icon = iconMap[item.iconName];
@@ -206,37 +192,18 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary"
             >
-              My Approach
+              {ABOUT_PAGE.approach.heading}
             </motion.h2>
 
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              Sean doesn&apos;t offer easy answers to hard questions. Instead, he
-              provides frameworks for thinking through complexity, anticipating
-              where regulation is headed, and making decisions that balance
-              innovation with accountability.
-            </motion.p>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              His clients describe him as &ldquo;refreshingly pragmatic&rdquo;
-              about ethics—someone who understands that perfect solutions rarely
-              exist, but better decisions always do.
-            </motion.p>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              Sean specializes in the gray areas—the ethical questions that
-              don&apos;t have obvious answers. He helps organizations think through
-              tradeoffs, anticipate stakeholder concerns, and make defensible
-              decisions when there&apos;s no perfect option.
-            </motion.p>
+            {ABOUT_PAGE.approach.paragraphs.map((paragraph) => (
+              <motion.p
+                key={paragraph.slice(0, 40)}
+                variants={fadeInUp}
+                className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
+              >
+                {paragraph}
+              </motion.p>
+            ))}
           </motion.div>
 
           {/* Quote - Right Side */}
@@ -250,7 +217,7 @@ export default function AboutPage() {
             <div className="rounded-2xl bg-background-dark p-8">
               <span className="text-4xl text-accent leading-none">&ldquo;</span>
               <blockquote className="font-heading text-[length:var(--text-h3)] italic leading-relaxed text-text-on-dark -mt-2">
-                Perfect solutions rarely exist, but better decisions always do.&rdquo;
+                {ABOUT_PAGE.quote}&rdquo;
               </blockquote>
               <cite className="mt-4 block text-[length:var(--text-body)] font-semibold not-italic">
                 <span className="text-accent">—</span>{" "}
@@ -298,20 +265,19 @@ export default function AboutPage() {
             variants={fadeInUp}
             className="font-heading text-[length:var(--text-h1)] font-semibold text-white"
           >
-            Let&apos;s Work Together
+            {ABOUT_PAGE.cta.heading}
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
             className="mt-6 text-[length:var(--text-body)] text-white/70"
           >
-            Ready to navigate AI policy with confidence? Let&apos;s discuss how I can
-            help your organization lead responsibly.
+            {ABOUT_PAGE.cta.subtext}
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-8">
             <Link href="/contact">
-              <Button size="lg">Get in Touch</Button>
+              <Button size="lg">{ABOUT_PAGE.cta.buttonText}</Button>
             </Link>
           </motion.div>
         </motion.div>

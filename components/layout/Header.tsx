@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { ChevronDown, Linkedin, Twitter } from "lucide-react";
+import { LuChevronDown } from "react-icons/lu";
+import { SiLinkedin, SiX } from "react-icons/si";
 import { NAV_ITEMS, SERVICES, SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
@@ -67,9 +68,9 @@ export function Header() {
                 aria-label={social.label}
               >
                 {social.icon === "linkedin" ? (
-                  <Linkedin className="h-4 w-4" />
+                  <SiLinkedin className="h-4 w-4" />
                 ) : (
-                  <Twitter className="h-4 w-4" />
+                  <SiX className="h-4 w-4" />
                 )}
               </a>
             ))}
@@ -89,7 +90,7 @@ export function Header() {
                   className="flex items-center gap-1 text-sm font-medium text-text-secondary transition-colors hover:text-accent"
                 >
                   {item.label}
-                  <ChevronDown className={cn(
+                  <LuChevronDown className={cn(
                     "h-3 w-3 transition-transform",
                     servicesOpen && "rotate-180"
                   )} />
@@ -177,7 +178,7 @@ export function Header() {
                   className="flex w-full items-center justify-between text-text-secondary transition-colors hover:text-accent"
                 >
                   {item.label}
-                  <ChevronDown className={cn(
+                  <LuChevronDown className={cn(
                     "h-4 w-4 transition-transform",
                     mobileServicesOpen && "rotate-180"
                   )} />
@@ -228,9 +229,9 @@ export function Header() {
                 aria-label={social.label}
               >
                 {social.icon === "linkedin" ? (
-                  <Linkedin className="h-5 w-5" />
+                  <SiLinkedin className="h-5 w-5" />
                 ) : (
-                  <Twitter className="h-5 w-5" />
+                  <SiX className="h-5 w-5" />
                 )}
               </a>
             ))}

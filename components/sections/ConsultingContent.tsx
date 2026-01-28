@@ -4,92 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Shield,
-  Target,
-  Compass,
-  Scale,
-  GraduationCap,
-  Users,
-  Presentation,
-  CheckCircle,
-} from "lucide-react";
+  LuShield,
+  LuTarget,
+  LuCompass,
+  LuScale,
+  LuGraduationCap,
+  LuUsers,
+  LuPresentation,
+  LuCircleCheck,
+} from "react-icons/lu";
 import { fadeInUp, staggerContainer, scaleUp, slideInLeft, slideInRight } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import {
+  CONSULTING_CLIENT_TYPES,
+  CONSULTING_OFFERINGS,
+  CONSULTING_OUTCOMES,
+  CONSULTING_HERO,
+  CONSULTING_SECTIONS,
+} from "@/lib/content";
 
-// Client types
-const clientTypes = [
-  {
-    type: "Fortune 500",
-    description: "Navigating AI regulation and building enterprise governance",
-  },
-  {
-    type: "Startups",
-    description: "Building responsible systems from the ground up",
-  },
-  {
-    type: "Executives",
-    description: "Personal guidance on AI strategy and career decisions",
-  },
-  {
-    type: "Academic Institutions",
-    description: "Developing curriculum and research frameworks",
-  },
-];
-
-// 7 Core Offerings from client copy
-const offerings = [
-  {
-    icon: Shield,
-    title: "Building AI Governance",
-    description:
-      "Move from compliance checkboxes to genuine accountability. Governance frameworks that combine regulatory foresight, operational design, and stakeholder engagement.",
-  },
-  {
-    icon: Target,
-    title: "Strategy & Risk Assessment",
-    description:
-      "Understanding where AI creates value and where it creates liability—and how to tell the difference. Frameworks that help your organization move forward confidently.",
-  },
-  {
-    icon: Compass,
-    title: "Policy Translation",
-    description:
-      "Making sense of the global patchwork of AI regulations—from the EU AI Act to state-level requirements. Position ahead of compliance deadlines rather than scrambling.",
-  },
-  {
-    icon: Scale,
-    title: "Ethics Frameworks That Scale",
-    description:
-      "Building approaches to algorithmic fairness and responsible AI that work in production environments, not just PowerPoint decks.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Executive Education & Workshops",
-    description:
-      "Equipping leadership teams, product managers, and technical staff with shared language and strategic frameworks tailored to your challenges.",
-  },
-  {
-    icon: Users,
-    title: "Civil Rights & Impact Assessments",
-    description:
-      "Identifying potential disparate impacts and algorithmic harms before they become headlines. Rigorous analysis paired with practical remediation strategies.",
-  },
-  {
-    icon: Presentation,
-    title: "Expert Briefings",
-    description:
-      "Educational talks tailored to your audience—whether board members, technical teams, or industry conferences. Complex topics made digestible and actionable.",
-  },
-];
-
-// Case study outcomes
-const outcomes = [
-  "First EU Algorithmic Transparency Report",
-  "Company-wide Civil Rights Assessment",
-  "Operational fairness frameworks",
-  "Regulatory-ready governance",
-];
+const iconMap = {
+  Shield: LuShield,
+  Target: LuTarget,
+  Compass: LuCompass,
+  Scale: LuScale,
+  GraduationCap: LuGraduationCap,
+  Users: LuUsers,
+  Presentation: LuPresentation,
+} as const;
 
 function ConsultingHero() {
   return (
@@ -108,30 +51,28 @@ function ConsultingHero() {
               variants={fadeInUp}
               className="mb-4 text-base font-medium text-accent"
             >
-              Strategic Advisory
+              {CONSULTING_HERO.subtitle}
             </motion.p>
 
             <motion.h1
               variants={fadeInUp}
               className="font-heading text-[length:var(--text-h1)] font-bold leading-tight tracking-tight text-white"
             >
-              Translating AI Policy
+              {CONSULTING_HERO.headingLine1}
               <br />
-              <span className="text-accent">Into Business Strategy</span>
+              <span className="text-accent">{CONSULTING_HERO.headingAccent}</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
               className="mt-6 max-w-[520px] text-lg leading-relaxed text-text-on-dark-muted"
             >
-              Strategic clarity for organizations navigating the messy reality of
-              AI implementation—where ethics, regulation, competitive advantage,
-              and risk all collide.
+              {CONSULTING_HERO.description}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact">
-                <Button size="lg">Start a Conversation</Button>
+                <Button size="lg">{CONSULTING_HERO.ctaText}</Button>
               </Link>
             </motion.div>
 
@@ -143,8 +84,8 @@ function ConsultingHero() {
               <p className="mb-4 text-sm font-medium uppercase tracking-widest text-text-on-dark-muted">
                 Who I Work With
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                {clientTypes.map((client) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {CONSULTING_CLIENT_TYPES.map((client) => (
                   <div key={client.type} className="max-w-[200px]">
                     <span className="font-heading font-semibold text-white">
                       {client.type}
@@ -205,48 +146,23 @@ function ProcessSection() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div variants={slideInLeft}>
             <h2 className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary">
-              What You Get
+              {CONSULTING_SECTIONS.process.heading}
             </h2>
             <p className="mt-4 text-[length:var(--text-body)] leading-relaxed text-text-secondary">
-              Sean works with organizations navigating the messy reality of AI
-              implementation—where ethics, regulation, competitive advantage, and
-              risk all collide. His approach combines regulatory insight, strategic
-              thinking, and practical experience.
+              {CONSULTING_SECTIONS.process.description}
             </p>
 
             <div className="mt-8 space-y-6">
-              <motion.div variants={fadeInUp} className="rounded-lg border-l-4 border-accent bg-accent/5 p-4">
-                <h3 className="font-heading font-semibold text-text-primary">
-                  Ethical Clarity in Ambiguous Situations
-                </h3>
-                <p className="mt-1 text-sm text-text-secondary">
-                  Sean specializes in the gray areas—the ethical questions that
-                  don&apos;t have obvious answers. He helps organizations think through
-                  tradeoffs and make defensible decisions when there&apos;s no perfect option.
-                </p>
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="rounded-lg border-l-4 border-accent bg-accent/5 p-4">
-                <h3 className="font-heading font-semibold text-text-primary">
-                  Regulatory Foresight, Not Just Compliance
-                </h3>
-                <p className="mt-1 text-sm text-text-secondary">
-                  Understanding what&apos;s coming next in AI policy—and positioning
-                  your organization to adapt proactively. Sean tracks regulatory
-                  developments globally and translates them into strategic implications.
-                </p>
-              </motion.div>
-
-              <motion.div variants={fadeInUp} className="rounded-lg border-l-4 border-accent bg-accent/5 p-4">
-                <h3 className="font-heading font-semibold text-text-primary">
-                  Implementation Experience, Not Just Theory
-                </h3>
-                <p className="mt-1 text-sm text-text-secondary">
-                  Sean doesn&apos;t just advise—he&apos;s built these systems. From creating
-                  transparency frameworks at scale to designing academic programs,
-                  he brings a practitioner&apos;s perspective.
-                </p>
-              </motion.div>
+              {CONSULTING_SECTIONS.process.callouts.map((callout) => (
+                <motion.div key={callout.title} variants={fadeInUp} className="rounded-lg border-l-4 border-accent bg-accent/5 p-4">
+                  <h3 className="font-heading font-semibold text-text-primary">
+                    {callout.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-text-secondary">
+                    {callout.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -284,38 +200,40 @@ function OfferingsSection() {
       >
         <motion.div variants={fadeInUp} className="mb-12 text-center">
           <h2 className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary">
-            Core Offerings
+            {CONSULTING_SECTIONS.offerings.heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[length:var(--text-body)] text-text-secondary">
-            Sean helps organizations move from compliance checkboxes to genuine
-            accountability—combining regulatory foresight, operational design,
-            and stakeholder engagement.
+            {CONSULTING_SECTIONS.offerings.subtitle}
           </p>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {offerings.slice(0, 6).map((offering) => (
-            <motion.div
-              key={offering.title}
-              variants={scaleUp}
-              className="group rounded-xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
-                <offering.icon className="h-6 w-6" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-text-primary">
-                {offering.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                {offering.description}
-              </p>
-            </motion.div>
-          ))}
+          {CONSULTING_OFFERINGS.slice(0, 6).map((offering) => {
+            const Icon = iconMap[offering.iconName];
+            return (
+              <motion.div
+                key={offering.title}
+                variants={scaleUp}
+                className="group rounded-xl bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-text-primary">
+                  {offering.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {offering.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* 7th offering as a full-width card */}
         {(() => {
-          const SeventhIcon = offerings[6].icon;
+          const seventh = CONSULTING_OFFERINGS[6];
+          const SeventhIcon = iconMap[seventh.iconName];
           return (
             <motion.div
               variants={scaleUp}
@@ -326,10 +244,10 @@ function OfferingsSection() {
               </div>
               <div>
                 <h3 className="font-heading text-lg font-semibold text-text-primary">
-                  {offerings[6].title}
+                  {seventh.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-secondary">
-                  {offerings[6].description}
+                  {seventh.description}
                 </p>
               </div>
             </motion.div>
@@ -356,34 +274,30 @@ function CaseStudySection() {
               variants={fadeInUp}
               className="text-sm font-medium uppercase tracking-widest text-accent"
             >
-              Featured Work
+              {CONSULTING_SECTIONS.caseStudy.label}
             </motion.p>
 
             <motion.h2
               variants={fadeInUp}
               className="mt-4 font-heading text-[length:var(--text-h2)] font-semibold text-white"
             >
-              Uber AI Transparency Report
+              {CONSULTING_SECTIONS.caseStudy.heading}
             </motion.h2>
 
             <motion.p
               variants={fadeInUp}
               className="mt-4 text-[length:var(--text-body)] text-text-on-dark-muted"
             >
-              As Global Head of AI & Fairness Policy at Uber, Sean created the
-              company&apos;s first EU Algorithmic Transparency Report—a comprehensive
-              public accounting of how algorithms shape platform decisions. As a
-              core team member on Uber&apos;s first Civil Rights Assessment, he helped
-              translate abstract principles of fairness into concrete practices.
+              {CONSULTING_SECTIONS.caseStudy.description}
             </motion.p>
 
             <motion.div
               variants={fadeInUp}
               className="mt-8 grid gap-4 sm:grid-cols-2"
             >
-              {outcomes.map((outcome) => (
+              {CONSULTING_OUTCOMES.map((outcome) => (
                 <div key={outcome} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 shrink-0 text-accent" />
+                  <LuCircleCheck className="h-5 w-5 shrink-0 text-accent" />
                   <span className="text-sm text-white">{outcome}</span>
                 </div>
               ))}
@@ -393,7 +307,7 @@ function CaseStudySection() {
               variants={fadeInUp}
               className="mt-8 text-sm italic text-text-on-dark-muted"
             >
-              — Uber Technologies
+              {CONSULTING_SECTIONS.caseStudy.attribution}
             </motion.p>
           </div>
         </div>
@@ -416,25 +330,23 @@ function ConsultingCTA() {
           variants={fadeInUp}
           className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary"
         >
-          Let&apos;s Work Together
+          {CONSULTING_SECTIONS.cta.heading}
         </motion.h2>
 
         <motion.p
           variants={fadeInUp}
           className="mx-auto mt-4 max-w-2xl text-[length:var(--text-body)] text-text-secondary"
         >
-          Whether you need strategic guidance on AI governance, executive education
-          for your team, or help making complex policy accessible, Sean brings a
-          practitioner&apos;s perspective to every engagement.
+          {CONSULTING_SECTIONS.cta.description}
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mt-8 flex justify-center gap-4">
           <Link href="/contact">
-            <Button size="lg">Start a Conversation</Button>
+            <Button size="lg">{CONSULTING_SECTIONS.cta.primaryButtonText}</Button>
           </Link>
           <Link href="/services/public-speaking">
             <Button variant="secondary" size="lg">
-              View Speaking
+              {CONSULTING_SECTIONS.cta.secondaryButtonText}
             </Button>
           </Link>
         </motion.div>

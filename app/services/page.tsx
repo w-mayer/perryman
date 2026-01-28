@@ -2,18 +2,18 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mic, Briefcase, UserCheck, ArrowRight, LucideIcon } from "lucide-react";
+import { LuMic, LuBriefcase, LuUserCheck, LuArrowRight } from "react-icons/lu";
+import type { IconType } from "react-icons";
 import { fadeInUp, staggerContainer, slideInRight } from "@/styles/animations";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/constants";
-import { SERVICE_DESCRIPTIONS } from "@/lib/content";
+import { SERVICE_DESCRIPTIONS, SERVICES_PAGE } from "@/lib/content";
 
-// Map icon strings to Lucide components
-const iconMap: Record<string, LucideIcon> = {
-  mic: Mic,
-  briefcase: Briefcase,
-  "user-check": UserCheck,
+const iconMap: Record<string, IconType> = {
+  mic: LuMic,
+  briefcase: LuBriefcase,
+  "user-check": LuUserCheck,
 };
 
 export default function ServicesPage() {
@@ -31,7 +31,7 @@ export default function ServicesPage() {
             variants={fadeInUp}
             className="font-heading text-[length:var(--text-h1)] font-semibold text-text-on-dark"
           >
-            Services
+            {SERVICES_PAGE.header.heading}
           </motion.h1>
           <motion.div
             variants={fadeInUp}
@@ -41,8 +41,7 @@ export default function ServicesPage() {
             variants={fadeInUp}
             className="mx-auto mt-6 max-w-2xl text-[length:var(--text-body)] leading-relaxed text-text-on-dark-muted"
           >
-            Strategic guidance for organizations navigating the intersection of
-            AI innovation and responsible governance.
+            {SERVICES_PAGE.header.subtitle}
           </motion.p>
         </motion.div>
       </Section>
@@ -61,7 +60,7 @@ export default function ServicesPage() {
               },
             },
           }}
-          className="mx-auto grid max-w-5xl items-stretch gap-8 md:grid-cols-3"
+          className="mx-auto grid grid-cols-1 max-w-5xl items-stretch gap-8 md:grid-cols-3"
         >
           {SERVICES.map((service) => {
             const Icon = iconMap[service.icon];
@@ -82,7 +81,7 @@ export default function ServicesPage() {
                   </p>
                   <span className="inline-flex items-center gap-2 text-accent transition-transform group-hover:translate-x-1">
                     Learn More
-                    <ArrowRight className="h-4 w-4" />
+                    <LuArrowRight className="h-4 w-4" />
                   </span>
                 </Link>
               </motion.div>
@@ -105,28 +104,18 @@ export default function ServicesPage() {
               variants={fadeInUp}
               className="font-heading text-[length:var(--text-h2)] font-semibold text-text-primary"
             >
-              A Practitioner&apos;s Perspective
+              {SERVICES_PAGE.approach.heading}
             </motion.h2>
 
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              Sean doesn&apos;t offer easy answers to hard questions. Instead, he
-              provides frameworks for thinking through complexity, anticipating
-              where regulation is headed, and making decisions that balance
-              innovation with accountability.
-            </motion.p>
-
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
-            >
-              Whether you need a keynote that cuts through AI hype or strategic
-              consulting on governance frameworks, Sean brings unusual
-              breadth—policy expertise, strategic foresight, and hands-on
-              implementation experience.
-            </motion.p>
+            {SERVICES_PAGE.approach.paragraphs.map((paragraph) => (
+              <motion.p
+                key={paragraph.slice(0, 40)}
+                variants={fadeInUp}
+                className="mt-6 max-w-xl text-[length:var(--text-body)] leading-relaxed text-text-secondary"
+              >
+                {paragraph}
+              </motion.p>
+            ))}
           </motion.div>
 
           {/* Blockquote - Right Side */}
@@ -139,8 +128,7 @@ export default function ServicesPage() {
           >
             <div className="rounded-2xl bg-background-dark/5 p-8">
               <blockquote className="font-heading text-[length:var(--text-h3)] italic leading-relaxed text-text-primary">
-                &ldquo;Perfect solutions rarely exist, but better decisions
-                always do.&rdquo;
+                &ldquo;{SERVICES_PAGE.quote}&rdquo;
               </blockquote>
               <cite className="mt-4 block text-[length:var(--text-body)] font-semibold text-text-secondary not-italic">
                 — Sean Perryman
@@ -187,22 +175,19 @@ export default function ServicesPage() {
             variants={fadeInUp}
             className="font-heading text-[length:var(--text-h1)] font-semibold text-white"
           >
-            Let&apos;s Work Together
+            {SERVICES_PAGE.cta.heading}
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
             className="mt-6 text-[length:var(--text-body)] text-white/70"
           >
-            Whether you need strategic guidance on AI governance, executive
-            education for your team, or a speaker who can make complex policy
-            accessible, Sean brings a practitioner&apos;s perspective to every
-            engagement.
+            {SERVICES_PAGE.cta.subtext}
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-8">
             <Link href="/contact">
-              <Button size="lg">Start a Conversation</Button>
+              <Button size="lg">{SERVICES_PAGE.cta.buttonText}</Button>
             </Link>
           </motion.div>
         </motion.div>

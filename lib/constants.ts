@@ -28,16 +28,15 @@ export const SERVICES = [
   },
 ] as const;
 
-// TODO: ⚠️ MISSING PROFILE PATHS - Get full URLs from client
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" }, // TODO: Need full profile URL (e.g., linkedin.com/in/seanperryman)
-  { label: "X", href: "https://x.com", icon: "twitter" }, // TODO: Need full profile URL (e.g., x.com/seanperryman)
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/seanperryman", icon: "linkedin" },
+  { label: "X", href: "https://x.com/SeanPerrymanVA", icon: "x" },
 ] as const;
 
 export const SITE_CONFIG = {
   name: "Sean Perryman",
   title: "Speaker. Consultant. Strategist. Coach.",
-  email: "hello@seanperryman.com", // TODO: Verify correct email with client
+  email: "hello@seanperryman.com",
 } as const;
 
 // Service Detail Page Content

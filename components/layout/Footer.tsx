@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Linkedin, Twitter } from "lucide-react";
+import { SiLinkedin, SiX } from "react-icons/si";
 import { NAV_ITEMS, SOCIAL_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 const socialIcons = {
-  linkedin: Linkedin,
-  twitter: Twitter,
+  linkedin: SiLinkedin,
+  x: SiX,
 } as const;
 
 export function Footer() {
